@@ -1,0 +1,27 @@
+# --- Gizlilik: taranan gercek isletme verileri repoya GIRMEZ ---
+output/
+data/
+*.db
+
+# --- API anahtarlari (asla commit etme) ---
+.env
+.env.*
+credentials.json
+*.key
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# --- Editor / OS ---
+.Rhistory
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# Kisisel notlar (makineye ozel yollar)
+komutlar/tek.sat*.komut.py

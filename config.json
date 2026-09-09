@@ -1,0 +1,16 @@
+{
+  "city": "Berlin",
+  "target_leads": 10,
+  "discover_pool": 20,
+  "no_website_ratio": 0.6,
+  "ai": {
+    "enabled": false,
+    "provider": "anthropic",
+    "model": null
+  },
+  "firecrawl": {
+    "enabled": true,
+    "enrich_ratings": true,
+    "scrape_sites": true
+  }
+}
