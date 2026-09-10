@@ -6,7 +6,7 @@
 sistem o bölgedeki **web sitesi olmayan ya da sitesi sorunlu** işletmeleri bulur,
 kanıta dayalı puanlar ve satış görüşmesine hazır bir **PDF raporu** üretir.
 
-> *Local business lead discovery & enrichment. Pick a city and sectors — LeadRadar finds
+> *Local business lead discovery & enrichment. Pick a city and sectors LeadRadar finds
 > businesses with missing or broken websites, scores the opportunity from verifiable
 > evidence, and produces a sales-ready PDF report.*
 
@@ -16,7 +16,7 @@ Web tasarımcıları, dijital ajanslar ve yerel B2B satış ekipleri için tasar
 
 ## Kontrol paneli
 
-Şehir, isteğe bağlı semtler ve dilediğin kadar sektör seç — taramayı başlat,
+Şehir, isteğe bağlı semtler ve dilediğin kadar sektör seç taramayı başlat,
 ilerleme tarayıcıda canlı aksın.
 
 ![LeadRadar kontrol paneli](docs/panel.png)
@@ -25,17 +25,17 @@ ilerleme tarayıcıda canlı aksın.
 
 ## Ne yapar?
 
-- 🗺️ **Keşif** — OpenStreetMap (Overpass API) üzerinden 27 Alman şehri ve 25 sektörde
+- 🗺️ **Keşif** OpenStreetMap (Overpass API) üzerinden 27 Alman şehri ve 25 sektörde
   işletme tarar. API anahtarı gerekmez, ücretsizdir.
-- 🔍 **Site denetimi** — Her adayın sitesini test eder: HTTPS var mı, mobil uyumlu mu,
+- 🔍 **Site denetimi** Her adayın sitesini test eder: HTTPS var mı, mobil uyumlu mu,
   iletişim yolu çalışıyor mu, randevu linki kırık mı, sayfa açılıyor mu.
-- 🎯 **Kanıta dayalı puanlama** — YÜKSEK / ORTA / DÜŞÜK fırsat skoru. Skor yalnızca
+- 🎯 **Kanıta dayalı puanlama** YÜKSEK / ORTA / DÜŞÜK fırsat skoru. Skor yalnızca
   **doğrulanmış** bulgulardan üretilir; "eski görünüyor" gibi sezgisel izlenimler ayrı
   tutulur ve tek başına asla YÜKSEK skor üretemez.
-- 🧠 **Tekilleştirme** — Daha önce raporlanan işletmeler bir daha gelmez (SQLite hafıza).
-- 📄 **PDF rapor** — Her aday için: parametreler → iletişim bilgileri ve iletişim planı →
+- 🧠 **Tekilleştirme** Daha önce raporlanan işletmeler bir daha gelmez (SQLite hafıza).
+- 📄 **PDF rapor** Her aday için: parametreler → iletişim bilgileri ve iletişim planı →
   web sitesi hataları ve teknik denetim tablosu.
-- 🖥️ **Yerel kontrol paneli** — Tarayıcıdan şehir/semt/sektör seçip taramayı başlatırsın.
+- 🖥️ **Yerel kontrol paneli** Tarayıcıdan şehir/semt/sektör seçip taramayı başlatırsın.
 
 ---
 
@@ -48,7 +48,7 @@ py -m pip install -r requirements.txt
 py panel.py
 ```
 
-Tarayıcı otomatik açılır: **http://127.0.0.1:8765** — şehir, semt ve sektörleri seç,
+Tarayıcı otomatik açılır: **http://127.0.0.1:8765** şehir, semt ve sektörleri seç,
 "Taramayı Başlat"a bas. İlerleme canlı akar, bitince PDF bağlantısı çıkar.
 
 Panelsiz, komut satırından:
@@ -80,7 +80,7 @@ Anahtar iki yerden okunur (sırasıyla):
 setx FIRECRAWL_API_KEY "fc-senin-anahtarin"        # Windows
 export FIRECRAWL_API_KEY="fc-senin-anahtarin"      # macOS / Linux
 
-# 2) Veya Firecrawl CLI ile giriş yap — sistem oradan otomatik okur
+# 2) Veya Firecrawl CLI ile giriş yap sistem oradan otomatik okur
 npm install -g firecrawl-cli && firecrawl login
 ```
 
@@ -119,7 +119,7 @@ Seçim (önce sitesi olmayanlar)
    ↓
 Web sitesi denetimi (HTTPS · mobil · iletişim · kırık link · hata)
    ↓
-Puanlama (YÜKSEK / ORTA / DÜŞÜK — yalnızca kanıtla)
+Puanlama (YÜKSEK / ORTA / DÜŞÜK yalnızca kanıtla)
    ↓
 Kayıt + PDF raporu
 ```
