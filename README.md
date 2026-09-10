@@ -1,130 +1,131 @@
 # LeadRadar
 
-**Yerel işletme lead keşif ve zenginleştirme sistemi.** Bir şehir ve sektör seçersin;
-sistem o bölgedeki **web sitesi olmayan ya da sitesi sorunlu** işletmeleri bulur,
-kanıta dayalı puanlar ve satış görüşmesine hazır bir **PDF raporu** üretir.
+**Local business lead discovery & enrichment.** Pick a city and a set of sectors —
+LeadRadar finds businesses with **missing or broken websites**, scores the opportunity
+from verifiable evidence, and produces a **sales-ready PDF report**.
 
-> *Local business lead discovery & enrichment. Pick a city and sectors — LeadRadar finds
-> businesses with missing or broken websites, scores the opportunity from verifiable
-> evidence, and produces a sales-ready PDF report.*
+Built for web designers, digital agencies, and local B2B sales teams.
 
-Web tasarımcıları, dijital ajanslar ve yerel B2B satış ekipleri için tasarlandı.
+> 🇹🇷 Türkçe sürüm: [README.tr.md](README.tr.md)
 
 ---
 
-## Ne yapar?
+## What it does
 
-- 🗺️ **Keşif** — OpenStreetMap (Overpass API) üzerinden 27 Alman şehri ve 25 sektörde
-  işletme tarar. API anahtarı gerekmez, ücretsizdir.
-- 🔍 **Site denetimi** — Her adayın sitesini test eder: HTTPS var mı, mobil uyumlu mu,
-  iletişim yolu çalışıyor mu, randevu linki kırık mı, sayfa açılıyor mu.
-- 🎯 **Kanıta dayalı puanlama** — YÜKSEK / ORTA / DÜŞÜK fırsat skoru. Skor yalnızca
-  **doğrulanmış** bulgulardan üretilir; "eski görünüyor" gibi sezgisel izlenimler ayrı
-  tutulur ve tek başına asla YÜKSEK skor üretemez.
-- 🧠 **Tekilleştirme** — Daha önce raporlanan işletmeler bir daha gelmez (SQLite hafıza).
-- 📄 **PDF rapor** — Her aday için: parametreler → iletişim bilgileri ve iletişim planı →
-  web sitesi hataları ve teknik denetim tablosu.
-- 🖥️ **Yerel kontrol paneli** — Tarayıcıdan şehir/semt/sektör seçip taramayı başlatırsın.
+- 🗺️ **Discovery** — Scans businesses across **27 German cities** and **25 sectors**
+  via OpenStreetMap (Overpass API). No API key required, completely free.
+- 🔍 **Website audit** — Tests each prospect's site: HTTPS, mobile-friendliness
+  (viewport), working contact paths, broken booking links, page errors.
+- 🎯 **Evidence-based scoring** — HIGH / MEDIUM / LOW opportunity score. Scores are
+  derived **only from verified findings**; subjective impressions ("looks outdated")
+  are tracked separately and can never on their own produce a HIGH score.
+- 🧠 **Deduplication** — Previously reported businesses never appear again
+  (SQLite fingerprint memory).
+- 📄 **PDF report** — One page per prospect: parameters → contact details and an
+  outreach plan → website issues with a technical audit table.
+- 🖥️ **Local control panel** — Pick city, districts, and sectors in your browser,
+  then start the scan and watch live progress.
 
 ---
 
-## Hızlı başlangıç
+## Quick start
 
 ```bash
-git clone https://github.com/mrFurkan33333/leadradar.git
+git clone https://github.com/FlyerFukas/leadradar.git
 cd leadradar
 py -m pip install -r requirements.txt
 py panel.py
 ```
 
-Tarayıcı otomatik açılır: **http://127.0.0.1:8765** — şehir, semt ve sektörleri seç,
-"Taramayı Başlat"a bas. İlerleme canlı akar, bitince PDF bağlantısı çıkar.
+Your browser opens at **http://127.0.0.1:8765** — select a city, optional districts and
+sectors, then hit "Start scan". Progress streams live and a link to the PDF appears when
+the run finishes.
 
-Panelsiz, komut satırından:
+Without the panel, from the command line:
 
 ```bash
-py run.py                # varsayılan haftalık rotasyon
-py run.py --limit 5      # az adayla hızlı deneme
+py run.py                # default weekly rotation
+py run.py --limit 5      # quick trial with fewer prospects
 ```
 
-**Gereksinim:** Python 3.10+ ve internet bağlantısı.
+**Requirements:** Python 3.10+ and an internet connection.
 
 ---
 
-## 🔑 Firecrawl (isteğe bağlı) — kendi hesabını bağlaman gerekir
+## 🔑 Firecrawl (optional) — bring your own account
 
-LeadRadar **Firecrawl olmadan da tam çalışır.** Firecrawl açıkken iki ek yetenek gelir:
+LeadRadar **works fully without Firecrawl.** When enabled, it adds two capabilities:
 
-1. Rehberlerden (yelp.de, gelbeseiten.de, jameda.de…) **puan ve yorum sayısı** çekme
-2. JavaScript ile yüklenen siteleri **düzgün tarama**
+1. Pulls **ratings and review counts** from directories (yelp.de, gelbeseiten.de, jameda.de…)
+2. Properly scrapes **JavaScript-rendered websites**
 
-**Önemli:** Bu depoda hiçbir API anahtarı yoktur. Sistem anahtarı çalışma anında
-senin makinenden okur — yani bu projeyi indiren herkes **kendi Firecrawl hesabını**
-kullanır, kendi kredisini harcar. Başkasının kredisi kullanılmaz.
+**Important:** this repository contains **no API keys**. The key is read from your own
+machine at runtime — so anyone who clones this project uses **their own Firecrawl
+account and their own credits**. Nobody else's credits are ever consumed.
 
-Anahtar iki yerden okunur (sırasıyla):
+The key is resolved in this order:
 
 ```bash
-# 1) Ortam değişkeni
-setx FIRECRAWL_API_KEY "fc-senin-anahtarin"        # Windows
-export FIRECRAWL_API_KEY="fc-senin-anahtarin"      # macOS / Linux
+# 1) Environment variable
+setx FIRECRAWL_API_KEY "fc-your-key"          # Windows
+export FIRECRAWL_API_KEY="fc-your-key"        # macOS / Linux
 
-# 2) Veya Firecrawl CLI ile giriş yap — sistem oradan otomatik okur
+# 2) Or sign in with the Firecrawl CLI — the key is picked up automatically
 npm install -g firecrawl-cli && firecrawl login
 ```
 
-Anahtar bulunamazsa sistem uyarı verip Firecrawl'sız devam eder. Kapatmak için
-`config.json` → `"firecrawl": { "enabled": false }`.
+If no key is found, LeadRadar prints a notice and continues without Firecrawl.
+To disable it entirely, set `"firecrawl": { "enabled": false }` in `config.json`.
 
-Ücretsiz Firecrawl planı bu iş için fazlasıyla yeterlidir (~2 kredi/aday).
+The free Firecrawl tier is more than enough for this workload (~2 credits per prospect).
 
 ---
 
-## Yapılandırma (`config.json`)
+## Configuration (`config.json`)
 
-| Ayar | Açıklama |
+| Setting | Description |
 |---|---|
-| `city` | Hedef şehir (varsayılan Berlin) |
-| `target_leads` / `discover_pool` | Rapora seçilecek aday sayısı / keşif havuzu |
-| `no_website_ratio` | "Web sitesi yok" kotası (0.6 = %60) |
-| `category_rotation` / `area_rotation` | Haftalık rotasyon listeleri |
-| `category_osm` | Sektör → OpenStreetMap etiket eşlemesi (yeni sektör buradan eklenir) |
-| `chain_blacklist` | Zincir/franchise filtresi |
-| `firecrawl.enabled` | Firecrawl zenginleştirmesi aç/kapa |
-| `ai.enabled` | İsteğe bağlı LLM metin cilası (OpenAI / Anthropic) |
+| `city` | Target city (default: Berlin) |
+| `target_leads` / `discover_pool` | Prospects per report / discovery pool size |
+| `no_website_ratio` | Quota for "no website" prospects (0.6 = 60%) |
+| `category_rotation` / `area_rotation` | Weekly rotation lists |
+| `category_osm` | Sector → OpenStreetMap tag mapping (add new sectors here) |
+| `chain_blacklist` | Chain / franchise filter |
+| `firecrawl.enabled` | Toggle Firecrawl enrichment |
+| `ai.enabled` | Optional LLM copy polish (OpenAI / Anthropic) |
 
 ---
 
-## Nasıl çalışır?
+## How it works
 
 ```
-Rotasyon veya panel seçimi
+Weekly rotation or panel selection
    ↓
-Keşif (OpenStreetMap Overpass)
+Discovery (OpenStreetMap Overpass)
    ↓
-Parmak izi + tekilleştirme (SQLite)
+Fingerprint + deduplication (SQLite)
    ↓
-Seçim (önce sitesi olmayanlar)
+Selection (businesses without a website first)
    ↓
-Web sitesi denetimi (HTTPS · mobil · iletişim · kırık link · hata)
+Website audit (HTTPS · mobile · contact · broken links · errors)
    ↓
-Puanlama (YÜKSEK / ORTA / DÜŞÜK — yalnızca kanıtla)
+Scoring (HIGH / MEDIUM / LOW — evidence only)
    ↓
-Kayıt + PDF raporu
+Persist + PDF report
 ```
 
-Ayrıntılı çalışma mantığı için: `docs/LeadRadar_Sistem_Rehberi.pdf`
-(yeniden üretmek için `py make_system_guide.py`).
+A detailed walkthrough of the whole pipeline lives in
+`docs/LeadRadar_Sistem_Rehberi.pdf` (regenerate it with `py make_system_guide.py`).
 
 ---
 
-## Komutlar
+## Commands
 
-`komutlar/` klasöründeki `.bat` dosyalarına çift tıklayarak da kullanabilirsin
-(panel başlat, hızlı tarama, haftalık otomatik kurulum, çıktıları aç).
-Tüm komutların listesi: [`komutlar/KOMUTLAR.md`](komutlar/KOMUTLAR.md)
+The `komutlar/` folder contains double-clickable `.bat` shortcuts (start panel, quick
+scan, install the weekly schedule, open outputs). Full command list:
+[`komutlar/KOMUTLAR.md`](komutlar/KOMUTLAR.md)
 
-Haftalık otomatik çalıştırma (Windows, her Pazartesi 09:00):
+Weekly automated run (Windows, every Monday at 09:00):
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File haftalik_zamanlama.ps1
@@ -132,39 +133,39 @@ powershell -ExecutionPolicy Bypass -File haftalik_zamanlama.ps1
 
 ---
 
-## Çıktılar
+## Outputs
 
-| Ne | Yer |
+| What | Where |
 |---|---|
-| Lead raporu (PDF) | `output/LeadRadar_Lead_Raporu_<Şehir>_<tarih>_<saat>.pdf` |
-| Ham veri (JSON) | `output/LeadRadar_calistirma_<Şehir>_<tarih>_<saat>.json` |
-| Sistem rehberi (PDF) | `docs/LeadRadar_Sistem_Rehberi.pdf` |
-| Hafıza (SQLite) | `data/leads.db` |
+| Lead report (PDF) | `output/LeadRadar_Lead_Raporu_<City>_<date>_<time>.pdf` |
+| Raw data (JSON) | `output/LeadRadar_calistirma_<City>_<date>_<time>.json` |
+| System guide (PDF) | `docs/LeadRadar_Sistem_Rehberi.pdf` |
+| Memory (SQLite) | `data/leads.db` |
 
-Her çalıştırma **ayrı dosya** üretir; eski raporlar silinmez.
-`output/` ve `data/` klasörleri gerçek işletme verisi içerdiği için **depoya dahil
-edilmez** (`.gitignore`).
-
----
-
-## Veri kaynakları ve etik
-
-- İşletme verisi: [OpenStreetMap](https://www.openstreetmap.org/copyright) (ODbL)
-- Site denetimi: işletmenin kendi herkese açık web sitesi
-- Nazik tarama: istekler arasında bekleme, tek seferlik sayfa isteği
-- Sistem hiçbir yere otomatik mesaj göndermez — iletişim kararı her zaman kullanıcıya aittir
-- Yalnızca herkese açık işletme bilgileri kullanılır
+Every run produces a **separate file** — earlier reports are never overwritten.
+`output/` and `data/` hold real business data and are therefore **excluded from the
+repository** (see `.gitignore`).
 
 ---
 
-## Kökeni
+## Data sources and ethics
 
-Bu proje, n8n üzerindeki *"Local Business Lead Discovery and Enrichment Agent"*
-(Marco's Lead Scout) iş akışının mantığından yola çıkar; ancak n8n, OpenAI ajanları ve
-harici veritabanı bağımlılıkları olmadan, bağımsız ve deterministik bir Python
-uygulaması olarak sıfırdan yazılmıştır. Orijinaldeki "guardrail" puanlama kuralları
-koda dökülmüş, böylece sonuçlar tekrarlanabilir ve halüsinasyonsuz hale gelmiştir.
+- Business data: [OpenStreetMap](https://www.openstreetmap.org/copyright) (ODbL)
+- Website audit: the business's own publicly accessible website
+- Polite crawling: delays between requests, a single page request per site
+- The system never sends messages on your behalf — outreach is always your decision
+- Only publicly available business information is used
 
-## Lisans
+---
+
+## Origin
+
+This project started from the logic of the n8n workflow *"Local Business Lead Discovery
+and Enrichment Agent"* (Marco's Lead Scout), but was rewritten from scratch as a
+standalone, deterministic Python application — without n8n, OpenAI agents, or an
+external database. The original workflow's "guardrail" scoring rules were translated
+into code, which makes the results reproducible and free of hallucination.
+
+## License
 
 MIT
