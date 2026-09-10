@@ -14,6 +14,15 @@ Web tasarımcıları, dijital ajanslar ve yerel B2B satış ekipleri için tasar
 
 ---
 
+## Kontrol paneli
+
+Şehir, isteğe bağlı semtler ve dilediğin kadar sektör seç — taramayı başlat,
+ilerleme tarayıcıda canlı aksın.
+
+![LeadRadar kontrol paneli](docs/panel.png)
+
+---
+
 ## Ne yapar?
 
 - 🗺️ **Keşif** — OpenStreetMap (Overpass API) üzerinden 27 Alman şehri ve 25 sektörde

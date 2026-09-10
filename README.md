@@ -1,5 +1,10 @@
 # LeadRadar
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Data: OpenStreetMap](https://img.shields.io/badge/Data-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/copyright)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](#quick-start)
+
 **Local business lead discovery & enrichment.** Pick a city and a set of sectors —
 LeadRadar finds businesses with **missing or broken websites**, scores the opportunity
 from verifiable evidence, and produces a **sales-ready PDF report**.
@@ -7,6 +12,15 @@ from verifiable evidence, and produces a **sales-ready PDF report**.
 Built for web designers, digital agencies, and local B2B sales teams.
 
 > 🇹🇷 Türkçe sürüm: [README.tr.md](README.tr.md)
+
+---
+
+## The control panel
+
+Pick a city, optional districts and any number of sectors — then start the scan
+and watch progress stream live in the browser.
+
+![LeadRadar control panel](docs/panel.png)
 
 ---
 
