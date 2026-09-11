@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:630px;font-family:'Segoe UI',Arial,sans-serif;background:#fff;overflow:hidden}
+.wrap{width:1200px;height:630px;display:flex;flex-direction:column}
+.top{background:#1a1a2e;color:#fff;padding:32px 52px 28px;position:relative;overflow:hidden}
+.top:after{content:'';position:absolute;right:-90px;top:-110px;width:340px;height:340px;
+  border-radius:50%;background:radial-gradient(circle,rgba(45,108,223,.42),rgba(45,108,223,0) 70%)}
+.eyebrow{font-size:12.5px;letter-spacing:2.6px;color:#8fb0f0;font-weight:700;margin-bottom:9px}
+h1{font-size:50px;letter-spacing:-1.2px;font-weight:800;line-height:1}
+h1 span{color:#5b91f5}
+.tag{font-size:19px;color:#c7cee0;margin-top:11px;font-weight:400;line-height:1.45}
+.tag b{color:#fff;font-weight:700}
+.body{flex:1;padding:26px 52px 0;background:#f5f6fa}
+.steps{display:flex;gap:13px}
+.step{flex:1;background:#fff;border:1px solid #e2e5ee;border-radius:13px;padding:16px 15px;position:relative}
+.step .n{position:absolute;top:-11px;left:15px;background:#2d6cdf;color:#fff;font-size:11px;font-weight:800;
+  width:23px;height:23px;border-radius:50%;line-height:23px;text-align:center}
+.step h3{font-size:15px;color:#1a1a2e;margin:9px 0 6px;font-weight:800}
+.step p{font-size:12.3px;color:#5d6479;line-height:1.5}
+.mid{display:flex;gap:13px;margin-top:19px}
+.scores{flex:1.15;background:#fff;border:1px solid #e2e5ee;border-radius:13px;padding:14px 17px}
+.lbl{font-size:10.5px;letter-spacing:1.5px;color:#8b90a3;font-weight:800;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:12.8px;color:#3c4257}
+.pill{font-size:10px;font-weight:800;padding:3px 0;border-radius:20px;color:#fff;width:66px;text-align:center}
+.hi{background:#1b7f3b}.me{background:#d97706}.lo{background:#6b7280}
+.facts{flex:1;display:flex;flex-direction:column;gap:9px}
+.fact{background:#fff;border:1px solid #e2e5ee;border-radius:11px;padding:12px 15px;display:flex;
+  align-items:baseline;gap:11px}
+.fact b{font-size:20px;color:#2d6cdf;font-weight:800;width:56px;flex:none}
+.fact span{font-size:12.2px;color:#5d6479;line-height:1.35}
+.extras{display:flex;gap:13px;margin-top:15px}
+.ex{flex:1;background:#fff;border:1px solid #e2e5ee;border-radius:11px;padding:11px 14px;
+  font-size:12.2px;color:#3c4257;display:flex;align-items:center;gap:8px;line-height:1.3}
+.ex i{color:#2d6cdf;font-style:normal;font-weight:800;font-size:13px}
+.foot{background:#1a1a2e;color:#aab3cc;padding:13px 52px;display:flex;justify-content:space-between;
+  align-items:center;font-size:13px;margin-top:18px}
+.foot .url{color:#fff;font-weight:700}
+.foot .stack{color:#7d87a3;font-size:12px}
+</style></head><body><div class="wrap">
+<div class="top">
+  <div class="eyebrow">OPEN SOURCE &middot; PYTHON &middot; MIT</div>
+  <h1>Lead<span>Radar</span></h1>
+  <div class="tag">Finds local businesses with <b>missing or broken websites</b> —<br>
+  and turns them into a sales-ready PDF report.</div>
+</div>
+<div class="body">
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Discover</h3>
+      <p>27 German cities, 25 sectors via OpenStreetMap. No API key, no cost.</p></div>
+    <div class="step"><div class="n">2</div><h3>Audit</h3>
+      <p>HTTPS, mobile viewport, contact &amp; booking paths, page errors.</p></div>
+    <div class="step"><div class="n">3</div><h3>Score</h3>
+      <p>Opportunity rated from verifiable evidence only — never from opinion.</p></div>
+    <div class="step"><div class="n">4</div><h3>Report</h3>
+      <p>PDF per prospect: contact plan, outreach angle, technical findings.</p></div>
+  </div>
+  <div class="mid">
+    <div class="scores">
+      <div class="lbl">EVIDENCE-BASED SCORING</div>
+      <div class="row"><span class="pill hi">HIGH</span> No website, or 2+ verified blockers</div>
+      <div class="row"><span class="pill me">MEDIUM</span> One blocker, or repeated weak signals</div>
+      <div class="row"><span class="pill lo">LOW</span> Site healthy — deprioritise</div>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>0 &euro;</b><span>Runs free — optional paid enrichment only</span></div>
+      <div class="fact"><b>100%</b><span>Reproducible rule engine, no hallucination</span></div>
+    </div>
+  </div>
+  <div class="extras">
+    <div class="ex"><i>&#9635;</i> Local browser control panel</div>
+    <div class="ex"><i>&#8635;</i> Weekly scheduled runs</div>
+    <div class="ex"><i>&#10003;</i> A prospect never repeats</div>
+    <div class="ex"><i>&#9673;</i> Public data &middot; polite crawling</div>
+  </div>
+</div>
+<div class="foot">
+  <div class="url">github.com/FlyerFukas/leadradar</div>
+  <div class="stack">Python &middot; Overpass API &middot; BeautifulSoup &middot; ReportLab &middot; SQLite</div>
+</div>
+</div></body></html>

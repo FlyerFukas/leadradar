@@ -1,5 +1,7 @@
 # LeadRadar (Turkce)
 
+![LeadRadar — yerel işletme lead keşif sistemi](docs/cover.png)
+
 > English version: [README.md](README.md)
 
 **Yerel işletme lead keşif ve zenginleştirme sistemi.** Bir şehir ve sektör seçersin;
