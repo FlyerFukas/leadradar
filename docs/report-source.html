@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:630px;font-family:'Segoe UI',Arial,sans-serif;background:#f5f6fa}
+.wrap{width:1200px;height:630px;display:flex;flex-direction:column}
+.top{background:#1a1a2e;color:#fff;padding:18px 52px 15px}
+.eyebrow{font-size:12px;letter-spacing:2.6px;color:#8fb0f0;font-weight:700;margin-bottom:7px}
+h1{font-size:25px;font-weight:800;letter-spacing:-.5px}
+h1 small{display:block;font-size:13.5px;color:#c7cee0;font-weight:400;margin-top:7px}
+.body{flex:1;padding:15px 52px 0;display:flex;gap:18px}
+.page{flex:1.35;background:#fff;border:1px solid #d9dce6;border-radius:11px;padding:0;overflow:hidden;
+  box-shadow:0 3px 14px rgba(0,0,0,.07)}
+.ph{background:#1a1a2e;color:#fff;padding:10px 15px}
+.ph .nm{font-size:17px;font-weight:800;letter-spacing:-.3px}
+.ph .sub{font-size:11.5px;color:#aab3cc;margin-top:3px}
+.pb{padding:9px 15px 11px}
+.badge{display:inline-block;background:#1b7f3b;color:#fff;font-size:10.5px;font-weight:800;
+  padding:4px 11px;border-radius:4px;letter-spacing:.4px}
+.sect{font-size:11px;font-weight:800;color:#1a1a2e;margin:8px 0 5px;padding-bottom:3px;border-bottom:1px solid #e6e8f0}
+table{width:100%;border-collapse:collapse;font-size:10.3px}
+td{padding:2.6px 7px;border:1px solid #eceef4;color:#3c4257;vertical-align:top}
+td.k{font-weight:700;color:#1a1a2e;width:41%;background:#fafbfd}
+.iss{font-size:10.4px;color:#a02020;margin:2px 0;padding-left:11px;position:relative;line-height:1.4}
+.iss:before{content:'\2022';position:absolute;left:0}
+.heu{font-size:10.2px;color:#8a6d1f;margin:2px 0;padding-left:11px;position:relative;line-height:1.4}
+.heu:before{content:'\2022';position:absolute;left:0}
+.notes{flex:1;display:flex;flex-direction:column;gap:11px;justify-content:center}
+.note{background:#fff;border:1px solid #e2e5ee;border-left:4px solid #2d6cdf;border-radius:10px;padding:12px 15px}
+.note .n{font-size:10px;font-weight:800;color:#2d6cdf;letter-spacing:1.3px;margin-bottom:5px}
+.note h4{font-size:13.5px;color:#1a1a2e;margin-bottom:5px;font-weight:800}
+.note p{font-size:11.8px;color:#5d6479;line-height:1.5}
+.foot{background:#fff;border-top:1px solid #e2e5ee;padding:10px 52px;display:flex;justify-content:space-between;
+  align-items:center;font-size:12px;color:#6b7280;margin-top:11px}
+.foot b{color:#1a1a2e}
+</style></head><body><div class="wrap">
+<div class="top">
+  <div class="eyebrow">THE OUTPUT &mdash; ONE PAGE PER PROSPECT</div>
+  <h1>Every lead arrives ready to act on.
+    <small>Real findings from an actual scan &mdash; business identity removed for publication.</small></h1>
+</div>
+<div class="body">
+  <div class="page">
+    <div class="ph"><div class="nm">7. [ business name withheld ]</div>
+      <div class="sub">Real-estate agency &middot; Hamburg</div></div>
+    <div class="pb">
+      <span class="badge">OPPORTUNITY SCORE: HIGH</span>
+      <div class="sect">1) PARAMETERS</div>
+      <table>
+        <tr><td class="k">Website status</td><td>Exists &mdash; insecure (http)</td></tr>
+        <tr><td class="k">Operating status</td><td>Likely active (site reachable)</td></tr>
+        <tr><td class="k">Freshness signal</td><td>Copyright year in footer: 2014</td></tr>
+      </table>
+      <div class="sect">2) CONTACT &amp; OUTREACH PLAN</div>
+      <table>
+        <tr><td class="k">Phone</td><td>[ withheld ]</td></tr>
+        <tr><td class="k">Contact page</td><td>index.php?nav=contact</td></tr>
+        <tr><td class="k">Evidence / source</td><td>openstreetmap.org/&hellip;</td></tr>
+      </table>
+      <div class="sect">3) WEBSITE ISSUES &mdash; VERIFIED</div>
+      <div class="iss">No HTTPS &mdash; the site is served over unencrypted http</div>
+      <div class="iss">Not mobile-friendly &mdash; viewport meta tag missing</div>
+      <div class="heu">[HEURISTIC] Footer copyright year is 2014 &mdash; likely unmaintained</div>
+      <div class="sect">TECHNICAL AUDIT</div>
+      <table>
+        <tr><td class="k">HTTP status</td><td>200</td><td class="k">HTTPS</td><td>NO</td></tr>
+        <tr><td class="k">Mobile viewport</td><td>NO</td><td class="k">Objective blockers</td><td><b>2</b></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="notes">
+    <div class="note"><div class="n">SECTION 1</div><h4>Parameters</h4>
+      <p>Category, district, score, whether a site exists at all, how fresh the business looks.</p></div>
+    <div class="note"><div class="n">SECTION 2</div><h4>Contact &amp; outreach plan</h4>
+      <p>Phone, e-mail found on the site, contact page, source link &mdash; plus a suggested opening line built from the findings.</p></div>
+    <div class="note"><div class="n">SECTION 3</div><h4>Website issues</h4>
+      <p>Verified problems in red. Subjective impressions are kept separate and marked <b>[HEURISTIC]</b> &mdash; they can never drive a HIGH score on their own.</p></div>
+  </div>
+</div>
+<div class="foot">
+  <div><b>Two verified blockers &rarr; HIGH.</b> One blocker &rarr; MEDIUM. Healthy site &rarr; LOW.</div>
+  <div>github.com/FlyerFukas/leadradar</div>
+</div>
+</div></body></html>

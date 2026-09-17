@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:630px;font-family:'Segoe UI',Arial,sans-serif;background:#f5f6fa}
+.wrap{width:1200px;height:630px;display:flex;flex-direction:column}
+.top{background:#1a1a2e;color:#fff;padding:26px 52px 22px;position:relative;overflow:hidden}
+.top:after{content:'';position:absolute;right:-80px;top:-120px;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,119,6,.35),rgba(217,119,6,0) 70%)}
+.eyebrow{font-size:12px;letter-spacing:2.6px;color:#f0b37e;font-weight:700;margin-bottom:8px}
+h1{font-size:33px;font-weight:800;letter-spacing:-.6px;line-height:1.18}
+.body{flex:1;padding:24px 52px 0}
+.cols{display:flex;gap:16px}
+.col{flex:1;background:#fff;border:1px solid #e2e5ee;border-radius:13px;padding:17px 18px}
+.col.bad{border-left:4px solid #c0392b}
+.col.good{border-left:4px solid #1b7f3b}
+.col h3{font-size:14px;font-weight:800;color:#1a1a2e;margin-bottom:11px;display:flex;align-items:center;gap:7px}
+.col li{list-style:none;font-size:12.6px;color:#4a5164;line-height:1.5;margin-bottom:8px;padding-left:16px;position:relative}
+.col li:before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%}
+.bad li:before{background:#c0392b}.good li:before{background:#1b7f3b}
+.data{margin-top:18px;background:#1a1a2e;border-radius:13px;padding:17px 22px;color:#fff}
+.data .dl{font-size:10.5px;letter-spacing:1.6px;color:#8fb0f0;font-weight:800;margin-bottom:13px}
+.drow{display:flex;gap:16px}
+.dcard{flex:1;background:rgba(255,255,255,.07);border-radius:10px;padding:12px 15px}
+.dcard .city{font-size:12.5px;color:#c7cee0;margin-bottom:6px}
+.dcard .big{font-size:27px;font-weight:800;color:#ff9f45;line-height:1}
+.dcard .big small{font-size:13px;color:#c7cee0;font-weight:600;margin-left:7px}
+.dnote{font-size:11.4px;color:#9aa4bd;margin-top:11px;line-height:1.45}
+.foot{background:#fff;border-top:1px solid #e2e5ee;padding:13px 52px;display:flex;justify-content:space-between;
+  align-items:center;font-size:13px;margin-top:16px}
+.foot b{color:#1a1a2e}
+.foot .u{color:#2d6cdf;font-weight:700;font-size:12.5px}
+</style></head><body><div class="wrap">
+<div class="top">
+  <div class="eyebrow">THE COMMERCIAL PROBLEM</div>
+  <h1>Finding local businesses that need a website<br>is manual, slow, and mostly guesswork.</h1>
+</div>
+<div class="body">
+  <div class="cols">
+    <div class="col bad"><h3>&#9888;&nbsp; How it's done today</h3>
+      <li>Open Maps, scroll listings one by one, click into each business</li>
+      <li>Visit every website by hand to see whether it even works</li>
+      <li>No way to separate <b>no website at all</b> from <b>a site that quietly loses customers</b></li>
+      <li>No memory — you call the same business you already contacted last month</li>
+      <li>Hours of work for a handful of usable prospects</li>
+    </div>
+    <div class="col good"><h3>&#10003;&nbsp; What LeadRadar does instead</h3>
+      <li>One scan across a whole city — or specific districts — in minutes</li>
+      <li>Every website tested: HTTPS, mobile viewport, contact path, booking links, page errors</li>
+      <li>Each prospect scored <b>only on verifiable evidence</b>, never on opinion</li>
+      <li>Remembers everyone already reported — a prospect never repeats</li>
+      <li>Output is a PDF with contact details and an outreach angle per business</li>
+    </div>
+  </div>
+  <div class="data">
+    <div class="dl">MEASURED IN ACTUAL SCANS &mdash; HAIR SALONS, 200-RESULT SAMPLE PER CITY</div>
+    <div class="drow">
+      <div class="dcard"><div class="city">Munich &middot; 196 businesses found</div>
+        <div class="big">142<small>had no website at all &mdash; 72%</small></div></div>
+      <div class="dcard"><div class="city">Cologne &middot; 195 businesses found</div>
+        <div class="big">153<small>had no website at all &mdash; 78%</small></div></div>
+    </div>
+    <div class="dnote">On top of that sit the businesses that <i>do</i> have a site which fails in practice &mdash;
+      served over plain http, unreadable on a phone, or with a contact page that returns an error.
+      Those are invisible to manual prospecting, and they are exactly what the audit step surfaces.</div>
+  </div>
+</div>
+<div class="foot">
+  <div><b>One command &rarr; a scored, deduplicated prospect list &rarr; a sales-ready PDF.</b></div>
+  <div class="u">github.com/FlyerFukas/leadradar</div>
+</div>
+</div></body></html>
