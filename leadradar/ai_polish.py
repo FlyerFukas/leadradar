@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+# LeadRadar — yerel işletme lead keşif ve zenginleştirme sistemi
+# Copyright (c) 2026 Furkan Akduman · https://github.com/FlyerFukas
+# SPDX-License-Identifier: LicenseRef-PolyForm-Noncommercial-1.0.0
+#
+# Ticari olmayan kullanım serbesttir (bkz. LICENSE).
+# İşletmeler ve her türlü ticari kullanım ayrı, ücretli lisans gerektirir.
+# Ayrıntı ve iletişim: COMMERCIAL.md
 """Istege bagli yapay zeka cilasi.
 
 Varsayilan olarak KAPALIDIR. Acmak icin config.json:

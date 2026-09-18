@@ -180,4 +180,30 @@ koda dökülmüş, böylece sonuçlar tekrarlanabilir ve halüsinasyonsuz hale g
 
 ## Lisans
 
-MIT
+LeadRadar **açık kaynak değil, kaynağı açık (source-available)** bir projedir.
+Çift lisanslıdır:
+
+- **Ticari olmayan kullanım ücretsizdir** —
+  [PolyForm Noncommercial 1.0.0](LICENSE). Kişisel öğrenme, hobi projesi,
+  araştırma, eğitim kurumları, kamu ve hayır kurumları kapsamdadır; izin
+  almanıza gerek yoktur.
+- **Ticari kullanım ayrı ve ücretli lisans gerektirir.** LeadRadar'ı bir
+  işletme adına müşteri adayı bulmak, nitelemek veya bu adaylarla iletişime
+  geçmek için kullanmak ticari kullanımdır. Koşullar, lisans biçimleri ve
+  iletişim: **[COMMERCIAL.md](COMMERCIAL.md)**.
+
+Hangi tarafta olduğunuzdan emin değilseniz
+[issue açın](https://github.com/FlyerFukas/leadradar/issues) ya da
+furkanakduman3452@gmail.com adresine yazın. Cevap vermek ücretsiz ve hızlıdır.
+
+> 9–18 Eylül 2026 arasında yayımlanan sürümler MIT lisanslıydı. MIT geri
+> alınamaz; o izin **yalnızca o sürümler için** geçerlidir, sonraki sürümleri
+> kapsamaz. Ayrıntı: [COMMERCIAL.md](COMMERCIAL.md) §8.
+
+Katkılar [CONTRIBUTING.md](CONTRIBUTING.md) koşullarıyla kabul edilir; çift
+lisans modeli bunu zorunlu kılıyor.
+
+**Veri hakkında:** işletme kayıtları
+[OpenStreetMap](https://www.openstreetmap.org/copyright) kaynaklıdır ve ODbL
+ile lisanslıdır. Türetilmiş veriyi yeniden dağıtıyorsanız ODbL'nin atıf ve
+paylaşım koşulları yukarıdaki lisanstan bağımsız olarak sizi bağlar.

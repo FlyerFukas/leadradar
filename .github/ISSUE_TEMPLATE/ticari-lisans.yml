@@ -1,0 +1,63 @@
+name: Ticari lisans talebi / Commercial license request
+description: İşletme kullanımı, ürüne gömme, yeniden satış ya da özelleştirme için lisans talebi
+title: "[Ticari lisans] "
+labels: ["ticari-lisans"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ticari olmayan kullanım için lisans talebine **gerek yoktur** —
+        [PolyForm Noncommercial 1.0.0](../../blob/main/LICENSE) zaten kapsar.
+
+        Bu formu yalnızca **ticari kullanım** için doldurun. Koşullar:
+        [COMMERCIAL.md](../../blob/main/COMMERCIAL.md)
+
+        Gizli tutulmasını istediğiniz bilgileri buraya yazmayın; issue herkese açıktır.
+        Gizli konular için doğrudan e-posta tercih edin.
+
+  - type: input
+    id: kurum
+    attributes:
+      label: Kurum
+      description: Şirket / ajans adı ve kısaca ne yaptığınız
+      placeholder: "Örn. Nova Dijital Ajans — KOBİ'lere web tasarımı ve SEO"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kullanim
+    attributes:
+      label: Kullanım biçimi
+      options:
+        - Kendi satışımız için — kendi müşteri adaylarımızı bulacağız
+        - Hizmet sağlayıcı — müşterilerimiz adına lead üreteceğiz
+        - Ürüne gömme / OEM — kendi CRM'imize veya ürünümüze entegre edeceğiz
+        - Beyaz etiket / yeniden satış / SaaS olarak sunma
+        - Kaynak kodun devri
+        - Emin değilim — önce konuşalım
+    validations:
+      required: true
+
+  - type: input
+    id: kapsam
+    attributes:
+      label: Kapsam
+      description: Hangi ülke, kaç şehir ve sektör, kaç kişi kullanacak
+      placeholder: "Örn. Almanya, 5 şehir, 3 sektör, 2 kullanıcı"
+    validations:
+      required: true
+
+  - type: textarea
+    id: beklenti
+    attributes:
+      label: Beklentiler
+      description: Özelleştirme, destek, yeni ülke/sektör ekleme, CRM entegrasyonu gibi ihtiyaçlar
+      placeholder: "Örn. HubSpot'a otomatik aktarım, Avusturya şehirlerinin eklenmesi"
+
+  - type: input
+    id: iletisim
+    attributes:
+      label: İletişim
+      description: Size nasıl dönebilirim
+    validations:
+      required: true

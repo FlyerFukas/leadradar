@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ticari lisans — doğrudan iletişim
+    url: mailto:furkanakduman3452@gmail.com
+    about: Gizli tutulması gereken ticari lisans görüşmeleri için e-posta
+  - name: Güvenlik açığı bildirimi
+    url: https://github.com/FlyerFukas/leadradar/security/advisories/new
+    about: Güvenlik açıklarını herkese açık issue ile bildirmeyin

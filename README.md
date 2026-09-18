@@ -2,7 +2,8 @@
 
 ![LeadRadar — local business lead discovery & enrichment](docs/cover.png)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20Noncommercial-orange.svg)](LICENSE)
+[![Commercial use: licence required](https://img.shields.io/badge/Commercial%20use-licence%20required-red.svg)](COMMERCIAL.md)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Data: OpenStreetMap](https://img.shields.io/badge/Data-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/copyright)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](#quick-start)
@@ -184,4 +185,28 @@ into code, which makes the results reproducible and free of hallucination.
 
 ## License
 
-MIT
+LeadRadar is **source-available, not open source.** It is dual-licensed:
+
+- **Noncommercial use is free** under the
+  [PolyForm Noncommercial License 1.0.0](LICENSE). Personal study, hobby
+  projects, research, education, charities and government institutions are
+  covered, with no need to ask.
+- **Commercial use requires a separate paid licence.** Using LeadRadar to find,
+  qualify or contact prospects for a business is commercial use, whatever your
+  industry. Terms, licence formats and contact: **[COMMERCIAL.md](COMMERCIAL.md)**.
+
+Not sure which side you fall on? Open an
+[issue](https://github.com/FlyerFukas/leadradar/issues) or e-mail
+furkanakduman3452@gmail.com. Answering is free and quick.
+
+> Versions published between 9 and 18 September 2026 were released under the MIT
+> Licence. That grant is irrevocable **for those versions** and does not extend
+> to this or any later release. See [COMMERCIAL.md](COMMERCIAL.md) section 8.
+
+Contributions are welcome under the terms in
+[CONTRIBUTING.md](CONTRIBUTING.md), which the dual-licence model requires.
+
+**Note on the data:** business records come from
+[OpenStreetMap](https://www.openstreetmap.org/copyright) under the ODbL. If you
+redistribute derived data, ODbL's attribution and share-alike terms apply to you
+independently of the licence above.
