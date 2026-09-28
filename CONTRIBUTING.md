@@ -14,7 +14,7 @@ ticari lisans ([COMMERCIAL.md](COMMERCIAL.md)).
 
 Bir yazılımı ticari lisansla satabilmek için **o yazılımın tamamının telif
 hakkına sahip olmak** gerekir. Kabul edilen bir katkının telifi katkıda
-bulunanda kalırsa, proje sahibi o satırları ticari lisansa dahil edemez — ve
+bulunanda kalırsa, proje sahibi o satırları ticari lisansa dahil edemez ve
 model çalışmaz.
 
 Bu, katkınızın değersiz görüldüğü anlamına gelmez. Tam tersi: kodunuzun
@@ -30,10 +30,10 @@ Bir pull request açarak aşağıdakileri beyan etmiş olursunuz:
    kopyalanmamıştır. Başka bir kaynaktan alınan bir bölüm varsa, kaynağını ve
    lisansını PR açıklamasında belirtirsiniz.
 2. Katkınız üzerindeki **mali hakları** (işleme, çoğaltma, yayma, temsil, umuma
-   iletim — FSEK m.21-25) proje sahibi **Furkan Akduman**'a devredersiniz; ya da
+   iletim: FSEK m.21-25) proje sahibi **Furkan Akduman**'a devredersiniz; ya da
    bu mümkün değilse, proje sahibine katkı üzerinde **süresiz, geri alınamaz,
    dünya çapında, alt lisans verilebilir ve münhasır olmayan** bir kullanım
-   hakkı tanırsınız — **ticari lisanslama dahil.**
+   hakkı tanırsınız, **ticari lisanslama dahil.**
 3. Bu devrin/iznin karşılığında bir ücret talep etmezsiniz.
 4. İşvereniniz varsa ve katkı çalışma saatlerinizde veya işverenin
    ekipmanıyla üretildiyse, bu devri yapmaya yetkili olduğunuzu teyit
@@ -52,15 +52,15 @@ değil; modelin çalışması için gereken belgedir.
 
 ## Katkı kabul edilmeyen durumlar
 
-- **Beyan satırı yoksa** — yukarıdaki sebep
-- **Kaynağı belirsiz kod** — başka bir projeden alınmış olabilecek, lisansı
+- **Beyan satırı yoksa:** yukarıdaki sebep
+- **Kaynağı belirsiz kod:** başka bir projeden alınmış olabilecek, lisansı
   bilinmeyen bölümler
-- **Copyleft lisanslı koddan türetilmiş katkı** (GPL, AGPL, LGPL) — bu
+- **Copyleft lisanslı koddan türetilmiş katkı** (GPL, AGPL, LGPL): bu
   lisanslar türev eserin de aynı lisansla dağıtılmasını zorunlu kılar ve
   ticari lisanslamayı imkânsız hâle getirir
 - **Yeni bağımlılık ekleyen ve lisansı izin verici olmayan** katkılar
   (mevcut bağımlılıkların hepsi MIT/BSD'dir, bu bilinçli bir tercihtir)
-- **Taramayı agresifleştiren katkılar** — bekleme sürelerini kaldıran, paralel
+- **Taramayı agresifleştiren katkılar:** bekleme sürelerini kaldıran, paralel
   istek sayısını artıran, `robots.txt` ya da kullanım koşullarını yok sayan
   değişiklikler. Yavaş ve nazik tarama bu projede bir tasarım kararıdır.
 
@@ -74,13 +74,13 @@ belge iyileştirmesi) için doğrudan PR açabilirsiniz.
 
 Özellikle ilgilendiğim katkılar:
 
-- **Yeni ülkeler** — `city_catalog` ve `admin_level` eşlemeleri (Avusturya,
+- **Yeni ülkeler:** `city_catalog` ve `admin_level` eşlemeleri (Avusturya,
   İsviçre, Hollanda gibi OSM verisi güçlü ülkeler)
-- **Yeni sektörler** — `category_osm` içine doğru OSM etiket eşlemesi
-- **Yeni denetim kontrolleri** — `audit.py` içindeki desene uygun, **nesnel ve
+- **Yeni sektörler:** `category_osm` içine doğru OSM etiket eşlemesi
+- **Yeni denetim kontrolleri:** `audit.py` içindeki desene uygun, **nesnel ve
   doğrulanabilir** olmak şartıyla. Öznel bir izlenim ekliyorsanız
   `heuristic_issues` tarafına koyun; guardrail'in bozulmaması esastır
-- **Rapor iyileştirmeleri** — `report.py` içinde okunabilirlik ve baskı kalitesi
+- **Rapor iyileştirmeleri:** `report.py` içinde okunabilirlik ve baskı kalitesi
 
 ---
 
@@ -97,7 +97,7 @@ belge iyileştirmesi) için doğrudan PR açabilirsiniz.
   Yedi adım da tamam dönmeli ve PDF üretilmeli.
 - **Puanlama guardrail'i korunsun.** Sezgisel bir bulgu tek başına asla YÜKSEK
   skor üretmemeli. Skorlama mantığına dokunuyorsanız bunu PR'da açıkça belirtin.
-- **Yeni kaynak dosyalara telif başlığı ekleyin** — mevcut dosyalardaki
+- **Yeni kaynak dosyalara telif başlığı ekleyin:** mevcut dosyalardaki
   SPDX bloğunu kopyalayın.
 
 ---

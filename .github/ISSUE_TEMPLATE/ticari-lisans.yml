@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Ticari olmayan kullanım için lisans talebine **gerek yoktur** —
+        Ticari olmayan kullanım için lisans talebine **gerek yoktur**:
         [PolyForm Noncommercial 1.0.0](../../blob/main/LICENSE) zaten kapsar.
 
         Bu formu yalnızca **ticari kullanım** için doldurun. Koşullar:
@@ -20,7 +20,7 @@ body:
     attributes:
       label: Kurum
       description: Şirket / ajans adı ve kısaca ne yaptığınız
-      placeholder: "Örn. Nova Dijital Ajans — KOBİ'lere web tasarımı ve SEO"
+      placeholder: "Örn. Nova Dijital Ajans, KOBİ'lere web tasarımı ve SEO"
     validations:
       required: true
 
@@ -29,12 +29,12 @@ body:
     attributes:
       label: Kullanım biçimi
       options:
-        - Kendi satışımız için — kendi müşteri adaylarımızı bulacağız
-        - Hizmet sağlayıcı — müşterilerimiz adına lead üreteceğiz
-        - Ürüne gömme / OEM — kendi CRM'imize veya ürünümüze entegre edeceğiz
+        - Kendi satışımız için: kendi müşteri adaylarımızı bulacağız
+        - Hizmet sağlayıcı: müşterilerimiz adına lead üreteceğiz
+        - Ürüne gömme / OEM: kendi CRM'imize veya ürünümüze entegre edeceğiz
         - Beyaz etiket / yeniden satış / SaaS olarak sunma
         - Kaynak kodun devri
-        - Emin değilim — önce konuşalım
+        - Emin değilim, önce konuşalım
     validations:
       required: true
 

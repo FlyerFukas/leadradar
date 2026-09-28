@@ -15,7 +15,7 @@ If you fork this project you use **your own** accounts and your own quota.
 ## Scraped data stays local
 
 `output/` (PDF and JSON reports) and `data/leads.db` contain real business contact
-details. Both are excluded from version control by `.gitignore`. **Do not commit them** —
+details. Both are excluded from version control by `.gitignore`. **Do not commit them:**
 publishing third-party contact data may breach privacy law (GDPR in the EU).
 
 ## Responsible use
@@ -24,7 +24,7 @@ publishing third-party contact data may breach privacy law (GDPR in the EU).
 - Only publicly available business information is collected.
 - LeadRadar never sends messages on your behalf; outreach is always a human decision.
 - Business data comes from OpenStreetMap under the
-  [ODbL](https://www.openstreetmap.org/copyright) — keep the attribution if you
+  [ODbL](https://www.openstreetmap.org/copyright); keep the attribution if you
   redistribute derived data.
 
 ## Reporting a vulnerability

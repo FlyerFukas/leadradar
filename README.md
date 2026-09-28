@@ -210,8 +210,8 @@ LeadRadar is **source-available, not open source.** It is dual-licensed:
   industry. Terms, licence formats and contact: **[COMMERCIAL.md](COMMERCIAL.md)**.
 
 Not sure which side you fall on? Open an
-[issue](https://github.com/FlyerFukas/leadradar/issues) or e-mail
-furkanakduman3452@gmail.com. Answering is free and quick.
+[issue](https://github.com/FlyerFukas/leadradar/issues) or send a message on
+[LinkedIn](https://www.linkedin.com/in/furkanakduman/). Answering is free and quick.
 
 > Versions published between 9 and 18 September 2026 were released under the MIT
 > Licence. That grant is irrevocable **for those versions** and does not extend

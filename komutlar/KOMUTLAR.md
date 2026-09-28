@@ -1,4 +1,4 @@
-# LeadRadar — Komut Rehberi
+# LeadRadar: Komut Rehberi
 
 Bu klasördeki `.bat` dosyalarına **çift tıklayarak** sistemi komut yazmadan
 kullanabilirsin. Aşağıda hem kısayolların ne yaptığı, hem de aynı işi yapan
@@ -79,7 +79,7 @@ Hepsi `C:\Users\furka\Music\LeadRadar` altında:
 | Sistem rehberi (PDF) | `docs\LeadRadar_Sistem_Rehberi.pdf` |
 | Hafıza (veritabanı) | `data\leads.db` |
 
-Her çalıştırma **ayrı dosya** oluşturur — eski raporlar silinmez.
+Her çalıştırma **ayrı dosya** oluşturur; eski raporlar silinmez.
 
 ---
 

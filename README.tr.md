@@ -1,6 +1,6 @@
 # LeadRadar (Turkce)
 
-![LeadRadar — yerel işletme lead keşif sistemi](docs/cover.png)
+![LeadRadar: yerel işletme lead keşif sistemi](docs/cover.png)
 
 > English version: [README.md](README.md)
 
@@ -64,7 +64,7 @@ py run.py --limit 5      # az adayla hızlı deneme
 
 ---
 
-## 🔑 Firecrawl (isteğe bağlı) — kendi hesabını bağlaman gerekir
+## 🔑 Firecrawl (isteğe bağlı): kendi hesabını bağlaman gerekir
 
 LeadRadar **Firecrawl olmadan da tam çalışır.** Firecrawl açıkken iki ek yetenek gelir:
 
@@ -72,7 +72,7 @@ LeadRadar **Firecrawl olmadan da tam çalışır.** Firecrawl açıkken iki ek y
 2. JavaScript ile yüklenen siteleri **düzgün tarama**
 
 **Önemli:** Bu depoda hiçbir API anahtarı yoktur. Sistem anahtarı çalışma anında
-senin makinenden okur — yani bu projeyi indiren herkes **kendi Firecrawl hesabını**
+senin makinenden okur, yani bu projeyi indiren herkes **kendi Firecrawl hesabını**
 kullanır, kendi kredisini harcar. Başkasının kredisi kullanılmaz.
 
 Anahtar iki yerden okunur (sırasıyla):
@@ -165,7 +165,7 @@ edilmez** (`.gitignore`).
 - İşletme verisi: [OpenStreetMap](https://www.openstreetmap.org/copyright) (ODbL)
 - Site denetimi: işletmenin kendi herkese açık web sitesi
 - Nazik tarama: istekler arasında bekleme, tek seferlik sayfa isteği
-- Sistem hiçbir yere otomatik mesaj göndermez — iletişim kararı her zaman kullanıcıya aittir
+- Sistem hiçbir yere otomatik mesaj göndermez; iletişim kararı her zaman kullanıcıya aittir
 - Yalnızca herkese açık işletme bilgileri kullanılır
 
 ---
@@ -183,7 +183,7 @@ koda dökülmüş, böylece sonuçlar tekrarlanabilir ve halüsinasyonsuz hale g
 LeadRadar **açık kaynak değil, kaynağı açık (source-available)** bir projedir.
 Çift lisanslıdır:
 
-- **Ticari olmayan kullanım ücretsizdir** —
+- **Ticari olmayan kullanım ücretsizdir:**
   [PolyForm Noncommercial 1.0.0](LICENSE). Kişisel öğrenme, hobi projesi,
   araştırma, eğitim kurumları, kamu ve hayır kurumları kapsamdadır; izin
   almanıza gerek yoktur.
@@ -194,9 +194,9 @@ LeadRadar **açık kaynak değil, kaynağı açık (source-available)** bir proj
 
 Hangi tarafta olduğunuzdan emin değilseniz
 [issue açın](https://github.com/FlyerFukas/leadradar/issues) ya da
-furkanakduman3452@gmail.com adresine yazın. Cevap vermek ücretsiz ve hızlıdır.
+[LinkedIn](https://www.linkedin.com/in/furkanakduman/) üzerinden yazın. Cevap vermek ücretsiz ve hızlıdır.
 
-> 9–18 Eylül 2026 arasında yayımlanan sürümler MIT lisanslıydı. MIT geri
+> 9-18 Eylül 2026 arasında yayımlanan sürümler MIT lisanslıydı. MIT geri
 > alınamaz; o izin **yalnızca o sürümler için** geçerlidir, sonraki sürümleri
 > kapsamaz. Ayrıntı: [COMMERCIAL.md](COMMERCIAL.md) §8.
 

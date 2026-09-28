@@ -25,3 +25,6 @@ desktop.ini
 
 # Kisisel notlar (makineye ozel yollar)
 komutlar/tek.sat*.komut.py
+
+# Kişisel çalışma notu, depoya girmez
+docs/linkedin-prompt.md

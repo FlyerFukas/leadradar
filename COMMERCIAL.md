@@ -1,6 +1,6 @@
 # Ticari Lisans / Commercial License
 
-> **TL;DR** — Kişisel kullanım, öğrenme, araştırma, eğitim kurumları, kamu ve
+> **TL;DR:** Kişisel kullanım, öğrenme, araştırma, eğitim kurumları, kamu ve
 > hayır kurumları için **ücretsiz**. Bir işletme için ya da ticari bir amaçla
 > kullanacaksanız **ayrı bir lisans almanız gerekir.**
 >
@@ -26,7 +26,7 @@ almanıza gerek yok, bildirimde bulunmanıza da:
 - Hayır kurumları, dernek ve vakıflar
 - Kod okumak, incelemek, üzerinde denemeler yapmak
 - Portföyünüzde/CV'nizde **referans vermek** (kaynağı belirterek)
-- Kendi mahallenizdeki işletmeleri merak edip taramak — **sonucu ticari bir
+- Kendi mahallenizdeki işletmeleri merak edip taramak, **sonucu ticari bir
   amaçla kullanmadığınız sürece**
 
 Bu kullanımlarda tek yükümlülüğünüz, yazılımı başkasına verirken lisans
@@ -39,7 +39,7 @@ metnini ve telif bildirimini birlikte vermenizdir.
 Aşağıdakiler ticari kullanımdır ve **önceden yazılı lisans almadan yapılamaz:**
 
 - **Müşteri adayı bulmak için kullanmak.** LeadRadar'ın ürettiği listeyi bir
-  işletme adına satış, pazarlama ya da teklif süreci için kullanmak — web
+  işletme adına satış, pazarlama ya da teklif süreci için kullanmak: web
   tasarımı, dijital ajans, SEO, yazılım, danışmanlık, sigorta, franchise,
   saha satışı fark etmez
 - Bir şirketin, şahıs işletmesinin ya da serbest meslek faaliyetinin
@@ -53,7 +53,7 @@ Aşağıdakiler ticari kullanımdır ve **önceden yazılı lisans almadan yapı
 
 **Ölçüt niyet değil, bağlamdır:** Kâr amacı güden bir organizasyonun içinde ya
 da onun için yapılan kullanım, o kullanım "sadece deneme" bile olsa ticaridir.
-Emin değilseniz sorun — cevap vermek hem hızlı hem ücretsiz.
+Emin değilseniz sorun: cevap vermek hem hızlı hem ücretsiz.
 
 ---
 
@@ -76,7 +76,7 @@ Fiyat; kullanıcı sayısı, taranan şehir/sektör kapsamı, destek düzeyi ve
 münhasırlık gibi etkenlere göre belirlenir. **Pazarlığa açıktır.**
 
 Erken aşama girişimler, tek kişilik işletmeler ve serbest çalışan tasarımcılar
-için indirimli koşullar mümkündür — çekinmeden yazın.
+için indirimli koşullar mümkündür, çekinmeden yazın.
 
 ---
 
@@ -85,10 +85,10 @@ için indirimli koşullar mümkündür — çekinmeden yazın.
 Ticari lisans, satın alma, özelleştirme ya da "bu kullanım ticari mi?" sorusu
 için:
 
-- **GitHub:** [github.com/FlyerFukas](https://github.com/FlyerFukas) — depoda
+- **GitHub:** [github.com/FlyerFukas](https://github.com/FlyerFukas): depoda
   bir [issue](https://github.com/FlyerFukas/leadradar/issues) açabilirsiniz
-  (gizli konular için doğrudan e-posta tercih edin)
-- **E-posta:** furkanakduman3452@gmail.com
+  (gizli konular için doğrudan mesaj tercih edin)
+- **LinkedIn:** [linkedin.com/in/furkanakduman](https://www.linkedin.com/in/furkanakduman/): gizli tutulması gereken konular için doğrudan mesaj
 
 Yazarken şunları belirtirseniz süreç hızlanır:
 
@@ -126,7 +126,7 @@ Standart yaklaşımım, sorumluluğun o dönem için ödenen lisans bedeliyle s�
 tutulması ve dolaylı zararların (kâr kaybı, iş kesintisi) kapsam dışında
 bırakılmasıdır.
 
-**Kullanıcının sorumluluğu — bu projede özellikle önemli.** LeadRadar üçüncü
+**Kullanıcının sorumluluğu: bu projede özellikle önemli.** LeadRadar üçüncü
 kişilere ait işletme verisi işler. Lisans, veri koruma ve ticari iletişim
 mevzuatına uyma yükümlülüğünü size **devretmez, sizde bırakır:**
 
@@ -147,7 +147,7 @@ mevzuatına uyma yükümlülüğünü size **devretmez, sizde bırakır:**
 
 ## 7. Katkılar
 
-Katkıya açığım — ama çift lisans modeli, katkılar için özel bir kural
+Katkıya açığım, ama çift lisans modeli, katkılar için özel bir kural
 gerektiriyor: birleştirilen katkıların **mali haklarının proje sahibine
 devredilmesi** ya da proje sahibine ticari lisanslama dahil sınırsız kullanım
 hakkı tanınması gerekir. Aksi hâlde o satırlar ticari lisansa dahil edilemez ve
@@ -165,7 +165,7 @@ değişiklik planlıyorsanız önce issue açın.
 | 09.09.2026 21:42 | Depo **public** olarak yayımlandı, **MIT lisansı** ile |
 | 18.09.2026 | **PolyForm Noncommercial 1.0.0 + ticari lisans** modeline geçildi |
 
-MIT lisansı **geri alınamaz** bir izindir. 9–18 Eylül 2026 arasında yayımlanan
+MIT lisansı **geri alınamaz** bir izindir. 9-18 Eylül 2026 arasında yayımlanan
 sürümlerin kopyasını alan biri, **aldığı o sürüm için** MIT haklarını korur;
 o sürümü ticari olarak da kullanabilir. Bu belgedeki koşullar **18 Eylül 2026
 ve sonrasındaki sürümler** için geçerlidir.
@@ -175,7 +175,7 @@ ve sonrasındaki sürümler** için geçerlidir.
 tarayıcıları ve yedekleme botlarını da içerir; kaç tanesinin gerçek bir
 kullanıcı olduğu ölçülemez. Kayıt niteliğinde buraya yazılmıştır.
 
-Bu, ticari lisansı anlamsız kılmaz: o pencerede alınan kopya **9–18 Eylül
+Bu, ticari lisansı anlamsız kılmaz: o pencerede alınan kopya **9-18 Eylül
 sürümüdür.** Sonraki geliştirmeler, düzeltmeler, yeni şehir/sektör tanımları,
 destek ve güncellemeler bu belgedeki koşullara tabidir.
 
