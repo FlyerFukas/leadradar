@@ -1,6 +1,6 @@
 # LeadRadar
 
-![LeadRadar — local business lead discovery & enrichment](docs/cover.png)
+![LeadRadar: local business lead discovery & enrichment](docs/cover.png)
 
 [![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20Noncommercial-orange.svg)](LICENSE)
 [![Commercial use: licence required](https://img.shields.io/badge/Commercial%20use-licence%20required-red.svg)](COMMERCIAL.md)
@@ -8,7 +8,7 @@
 [![Data: OpenStreetMap](https://img.shields.io/badge/Data-OpenStreetMap-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/copyright)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)](#quick-start)
 
-**Local business lead discovery & enrichment.** Pick a city and a set of sectors
+**Local business lead discovery & enrichment.** Pick a city and a set of sectors:
 LeadRadar finds businesses with **missing or broken websites**, scores the opportunity
 from verifiable evidence, and produces a **sales-ready PDF report**.
 
@@ -16,11 +16,25 @@ Built for web designers, digital agencies, and local B2B sales teams.
 
 > 🇹🇷 Türkçe sürüm: [README.tr.md](README.tr.md)
 
+![One page of the generated PDF report](docs/report.png)
+
+**Result:** every prospect gets one page with its evidence. A score of HIGH needs
+either no website at all or at least two verified technical blockers; subjective
+signals such as an old copyright year are marked `[HEURISTIC]` and can never
+produce HIGH on their own (rules in `leadradar/score.py`).
+
+```bash
+py run.py --limit 5    # scans 5 prospects, writes output/LeadRadar_Lead_Raporu_<City>_<date>_<time>.pdf
+```
+
+> Source-available: free for noncommercial use (PolyForm Noncommercial 1.0.0);
+> commercial use requires a licence, see [COMMERCIAL.md](COMMERCIAL.md).
+
 ---
 
 ## The control panel
 
-Pick a city, optional districts and any number of sectors then start the scan
+Pick a city, optional districts and any number of sectors, then start the scan
 and watch progress stream live in the browser.
 
 ![LeadRadar control panel](docs/panel.png)
@@ -29,18 +43,18 @@ and watch progress stream live in the browser.
 
 ## What it does
 
-- 🗺️ **Discovery** Scans businesses across **27 German cities** and **25 sectors**
+- 🗺️ **Discovery:** scans businesses across **27 German cities** and **25 sectors**
   via OpenStreetMap (Overpass API). No API key required, completely free.
-- 🔍 **Website audit** Tests each prospect's site: HTTPS, mobile-friendliness
+- 🔍 **Website audit:** tests each prospect's site: HTTPS, mobile-friendliness
   (viewport), working contact paths, broken booking links, page errors.
-- 🎯 **Evidence-based scoring** HIGH / MEDIUM / LOW opportunity score. Scores are
+- 🎯 **Evidence-based scoring:** HIGH / MEDIUM / LOW opportunity score. Scores are
   derived **only from verified findings**; subjective impressions ("looks outdated")
   are tracked separately and can never on their own produce a HIGH score.
-- 🧠 **Deduplication** Previously reported businesses never appear again
+- 🧠 **Deduplication:** previously reported businesses never appear again
   (SQLite fingerprint memory).
-- 📄 **PDF report** One page per prospect: parameters → contact details and an
+- 📄 **PDF report:** one page per prospect: parameters → contact details and an
   outreach plan → website issues with a technical audit table.
-- 🖥️ **Local control panel** Pick city, districts, and sectors in your browser,
+- 🖥️ **Local control panel:** pick city, districts, and sectors in your browser,
   then start the scan and watch live progress.
 
 ---
@@ -54,7 +68,7 @@ py -m pip install -r requirements.txt
 py panel.py
 ```
 
-Your browser opens at **http://127.0.0.1:8765** select a city, optional districts and
+Your browser opens at **http://127.0.0.1:8765**: select a city, optional districts and
 sectors, then hit "Start scan". Progress streams live and a link to the PDF appears when
 the run finishes.
 
@@ -69,7 +83,7 @@ py run.py --limit 5      # quick trial with fewer prospects
 
 ---
 
-## 🔑 Firecrawl (optional) bring your own account
+## 🔑 Firecrawl (optional): bring your own account
 
 LeadRadar **works fully without Firecrawl.** When enabled, it adds two capabilities:
 
@@ -77,7 +91,7 @@ LeadRadar **works fully without Firecrawl.** When enabled, it adds two capabilit
 2. Properly scrapes **JavaScript-rendered websites**
 
 **Important:** this repository contains **no API keys**. The key is read from your own
-machine at runtime so anyone who clones this project uses **their own Firecrawl
+machine at runtime, so anyone who clones this project uses **their own Firecrawl
 account and their own credits**. Nobody else's credits are ever consumed.
 
 The key is resolved in this order:
@@ -126,7 +140,7 @@ Selection (businesses without a website first)
    ↓
 Website audit (HTTPS · mobile · contact · broken links · errors)
    ↓
-Scoring (HIGH / MEDIUM / LOW evidence only)
+Scoring (HIGH / MEDIUM / LOW, evidence only)
    ↓
 Persist + PDF report
 ```
@@ -159,7 +173,7 @@ powershell -ExecutionPolicy Bypass -File haftalik_zamanlama.ps1
 | System guide (PDF) | `docs/LeadRadar_Sistem_Rehberi.pdf` |
 | Memory (SQLite) | `data/leads.db` |
 
-Every run produces a **separate file** earlier reports are never overwritten.
+Every run produces a **separate file**; earlier reports are never overwritten.
 `output/` and `data/` hold real business data and are therefore **excluded from the
 repository** (see `.gitignore`).
 
@@ -170,7 +184,7 @@ repository** (see `.gitignore`).
 - Business data: [OpenStreetMap](https://www.openstreetmap.org/copyright) (ODbL)
 - Website audit: the business's own publicly accessible website
 - Polite crawling: delays between requests, a single page request per site
-- The system never sends messages on your behalf outreach is always your decision
+- The system never sends messages on your behalf; outreach is always your decision
 - Only publicly available business information is used
 
 ---
