@@ -43,21 +43,46 @@ FONT_BOLD = "Helvetica-Bold"
 
 
 def _register_fonts():
-    """Turkce karakterler icin Windows TTF fontlarini kaydeder."""
+    """Turkce karakterler icin Windows TTF fontlarini kaydeder.
+
+    Dort kesimi de (duz, kalin, italik, kalin-italik) kaydedip aile olarak
+    baglar. Aile baglanmazsa paragraf icindeki <b> ve <i> etiketleri sessizce
+    etkisiz kalir ve metindeki tum vurgular kaybolur.
+    """
     global _FONTS_READY, FONT, FONT_BOLD
     if _FONTS_READY:
         return
+    win = r"C:\Windows\Fonts"
     candidates = [
-        (r"C:\Windows\Fonts\segoeui.ttf", r"C:\Windows\Fonts\segoeuib.ttf"),
-        (r"C:\Windows\Fonts\arial.ttf", r"C:\Windows\Fonts\arialbd.ttf"),
-        (r"C:\Windows\Fonts\calibri.ttf", r"C:\Windows\Fonts\calibrib.ttf"),
+        ("segoeui.ttf", "segoeuib.ttf", "segoeuii.ttf", "segoeuiz.ttf"),
+        ("arial.ttf", "arialbd.ttf", "ariali.ttf", "arialbi.ttf"),
+        ("calibri.ttf", "calibrib.ttf", "calibrii.ttf", "calibriz.ttf"),
     ]
-    for regular, bold in candidates:
-        if os.path.exists(regular) and os.path.exists(bold):
-            pdfmetrics.registerFont(TTFont("NSans", regular))
-            pdfmetrics.registerFont(TTFont("NSans-Bold", bold))
-            FONT, FONT_BOLD = "NSans", "NSans-Bold"
-            break
+    for reg, bold, ital, bital in candidates:
+        rp = os.path.join(win, reg)
+        bp = os.path.join(win, bold)
+        if not (os.path.exists(rp) and os.path.exists(bp)):
+            continue
+        pdfmetrics.registerFont(TTFont("NSans", rp))
+        pdfmetrics.registerFont(TTFont("NSans-Bold", bp))
+        FONT, FONT_BOLD = "NSans", "NSans-Bold"
+
+        ip = os.path.join(win, ital)
+        bip = os.path.join(win, bital)
+        has_i = os.path.exists(ip)
+        has_bi = os.path.exists(bip)
+        if has_i:
+            pdfmetrics.registerFont(TTFont("NSans-Italic", ip))
+        if has_bi:
+            pdfmetrics.registerFont(TTFont("NSans-BoldItalic", bip))
+        pdfmetrics.registerFontFamily(
+            "NSans",
+            normal="NSans",
+            bold="NSans-Bold",
+            italic="NSans-Italic" if has_i else "NSans",
+            boldItalic="NSans-BoldItalic" if has_bi else "NSans-Bold",
+        )
+        break
     _FONTS_READY = True
 
 

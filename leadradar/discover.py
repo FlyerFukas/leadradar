@@ -135,14 +135,53 @@ def _is_chain(tags, name, cfg):
     return any(b in low for b in cfg["chain_blacklist"])
 
 
+def _coords(el):
+    """Overpass 'out center' node icin lat/lon, way/relation icin center dondurur."""
+    if el.get("lat") is not None:
+        return el.get("lat"), el.get("lon")
+    c = el.get("center") or {}
+    return c.get("lat"), c.get("lon")
+
+
 def _element_to_lead(el, district, cfg, categories):
+    """Ham OSM elemanini adaya cevirir.
+
+    Dondurur: (lead|None, kayit). 'kayit' her zaman uretilir ve ham veri
+    defterine yazilir; lead None ise 'eleme_sebebi' alani doldurulmustur.
+    Boylece hicbir ham kayit sessizce kaybolmaz (akademik izlenebilirlik).
+    """
     tags = el.get("tags", {})
     name = (tags.get("name") or "").strip()
-    if not name or _is_chain(tags, name, cfg):
-        return None
+    lat, lon = _coords(el)
+
+    kayit = {
+        "osm_type": el.get("type"),
+        "osm_id": el.get("id"),
+        "enlem": lat,
+        "boylam": lon,
+        "isletme_adi": name or None,
+        "arama_bolgesi": district,
+        "ham_etiketler": tags,
+        "asama": "ham_kayit",
+        "eleme_sebebi": None,
+        "kategori": None,
+        "parmak_izi": None,
+    }
+
+    if not name:
+        kayit["eleme_sebebi"] = "isim_etiketi_yok"
+        return None, kayit
+    if _is_chain(tags, name, cfg):
+        kayit["eleme_sebebi"] = ("zincir_marka_etiketi"
+                                 if (tags.get("brand") or tags.get("brand:wikidata"))
+                                 else "zincir_kara_liste")
+        return None, kayit
+
     category = _category_of(tags, cfg, categories)
     if not category:
-        return None
+        kayit["eleme_sebebi"] = "secili_kategori_disi"
+        return None, kayit
+
     website = _website_of(tags)
     lead = {
         "business_name": name,
@@ -156,21 +195,38 @@ def _element_to_lead(el, district, cfg, categories):
         "services_listed": tags.get("cuisine") or tags.get("healthcare:speciality"),
         "osm_check_date": tags.get("check_date") or tags.get("survey:date"),
         "opening_hours": tags.get("opening_hours"),
+        "enlem": lat,
+        "boylam": lon,
+        "osm_type": el.get("type"),
+        "osm_id": el.get("id"),
     }
     lead["fingerprint"] = make_fingerprint(lead)
-    return lead
+
+    kayit["kategori"] = category
+    kayit["parmak_izi"] = lead["fingerprint"]
+    if not lead["fingerprint"]:
+        kayit["eleme_sebebi"] = "parmak_izi_uretilemedi"
+        return None, kayit
+
+    kayit["asama"] = "cerceveye_girdi"
+    return lead, kayit
 
 
-def _collect(elements, area_label, cfg, categories, leads, seen_fp):
+def _collect(elements, area_label, cfg, categories, leads, seen_fp, defter):
     added = 0
     for el in elements:
-        lead = _element_to_lead(el, area_label, cfg, categories)
-        if not lead or not lead["fingerprint"]:
+        lead, kayit = _element_to_lead(el, area_label, cfg, categories)
+        if lead is None:
+            defter.append(kayit)
             continue
         if lead["fingerprint"] in seen_fp:
+            kayit["asama"] = "elendi"
+            kayit["eleme_sebebi"] = "ayni_taramada_mukerrer"
+            defter.append(kayit)
             continue
         seen_fp.add(lead["fingerprint"])
         leads.append(lead)
+        defter.append(kayit)
         added += 1
     return added
 
@@ -180,8 +236,11 @@ def discover(cfg, rotation, log=print):
 
     rotation['whole_city'] True ise sehrin tamami tek sorguda taranir;
     aksi halde rotation['areas'] icindeki her semt ayri ayri taranir.
+
+    Dondurur: (leads, defter). 'defter' taranan HER ham OSM kaydini,
+    koordinati, tum etiketleri ve varsa eleme sebebiyle birlikte tutar.
     """
-    leads, seen_fp = [], set()
+    leads, seen_fp, defter = [], set(), []
     categories = rotation["categories"]
 
     if rotation.get("whole_city"):
@@ -192,11 +251,11 @@ def discover(cfg, rotation, log=print):
         query = _build_city_query(cfg, categories, city, admin, limit)
         try:
             elements = _fetch_overpass(cfg, query, log)
-            added = _collect(elements, city, cfg, categories, leads, seen_fp)
+            added = _collect(elements, city, cfg, categories, leads, seen_fp, defter)
             log(f"    {added} aday bulundu (toplam ham kayit: {len(elements)})")
         except RuntimeError as exc:
             log(f"    Şehir taraması başarısız: {exc}")
-        return leads
+        return leads, defter
 
     for district in rotation["areas"]:
         log(f"  Semt taraniyor: {district} ...")
@@ -206,10 +265,10 @@ def discover(cfg, rotation, log=print):
         except RuntimeError as exc:
             log(f"    {district} atlandi: {exc}")
             continue
-        added = _collect(elements, district, cfg, categories, leads, seen_fp)
+        added = _collect(elements, district, cfg, categories, leads, seen_fp, defter)
         log(f"    {added} aday bulundu (toplam ham kayit: {len(elements)})")
         time.sleep(2)  # Overpass'a nazik davran
-    return leads
+    return leads, defter
 
 
 def _completeness(lead):

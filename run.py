@@ -21,6 +21,7 @@ Boru hatti (orijinal n8n akisiyla ayni sira):
 """
 
 import argparse
+import csv
 import json
 import locale
 import os
@@ -103,7 +104,7 @@ def main():
 
     # 2) Kesif (orijinal: AI Agent — Discover Fresh + Firecrawl /search)
     print("[2/7] Keşif başlıyor (OpenStreetMap Overpass API)...")
-    raw_leads = discover_mod.discover(cfg, rotation)
+    raw_leads, defter = discover_mod.discover(cfg, rotation)
     pool = discover_mod.prioritize(raw_leads, cfg)
     print(f"      Toplam {len(raw_leads)} aday bulundu; öncelik sırasına göre {len(pool)} tanesi havuza alındı.")
 
@@ -115,6 +116,24 @@ def main():
     print(f"[3/7] Tekilleştirme: {len(seen)} kayıtlı parmak izi; havuzdan {len(unseen)} yeni aday çıktı.")
     selected = discover_mod.select_final(unseen, cfg)
     n_none = sum(1 for l in selected if l["website_tier"] == "none")
+
+    # Ham veri defterine boru hattindaki akibeti isle
+    fp_havuz = {l["fingerprint"] for l in pool}
+    fp_secili = {l["fingerprint"] for l in selected}
+    for k in defter:
+        fp = k.get("parmak_izi")
+        if k["asama"] == "ham_kayit" and k["eleme_sebebi"]:
+            k["asama"] = "elendi"
+        elif fp and fp in fp_secili:
+            k["asama"] = "rapora_secildi"
+        elif fp and fp in seen:
+            k["asama"] = "elendi"
+            k["eleme_sebebi"] = "onceki_haftalarda_raporlandi"
+        elif fp and fp in fp_havuz:
+            k["asama"] = "oncelik_havuzunda"
+            k["eleme_sebebi"] = "havuzda_kaldi_rapora_girmedi"
+        elif k["asama"] == "cerceveye_girdi":
+            k["eleme_sebebi"] = "havuz_disinda_kaldi"
     print(f"[4/7] Seçim: {len(selected)} aday ({n_none} tanesi web sitesiz, {len(selected) - n_none} tanesi siteli).")
 
     # 5) Zenginlestirme + denetim + puanlama (orijinal: AI Agent — enrichment)
@@ -251,6 +270,66 @@ def main():
             f, ensure_ascii=False, indent=2,
         )
     print(f"      Ham veri: {json_path}")
+
+    # --- Taranan ham verinin tamami: ayri CSV + JSON ambari ---
+    ozet = {}
+    for k in defter:
+        anahtar = k["eleme_sebebi"] or k["asama"]
+        ozet[anahtar] = ozet.get(anahtar, 0) + 1
+
+    csv_path = os.path.join(args.out_dir, f"LeadRadar_TarananVeri_{city_slug}_{stamp}.csv")
+    alanlar = ["osm_type", "osm_id", "enlem", "boylam", "isletme_adi", "kategori",
+               "arama_bolgesi", "adres", "telefon", "website", "website_durumu",
+               "acilis_saatleri", "osm_kontrol_tarihi", "parmak_izi",
+               "asama", "eleme_sebebi", "osm_baglantisi", "etiket_sayisi", "ham_etiketler"]
+    with open(csv_path, "w", encoding="utf-8-sig", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=alanlar, delimiter=";")
+        w.writeheader()
+        for k in defter:
+            t = k["ham_etiketler"] or {}
+            site = t.get("website") or t.get("contact:website") or t.get("url")
+            w.writerow({
+                "osm_type": k["osm_type"], "osm_id": k["osm_id"],
+                "enlem": k["enlem"], "boylam": k["boylam"],
+                "isletme_adi": k["isletme_adi"], "kategori": k["kategori"],
+                "arama_bolgesi": k["arama_bolgesi"],
+                "adres": " ".join(x for x in (t.get("addr:street"), t.get("addr:housenumber"),
+                                              t.get("addr:postcode"), t.get("addr:city")) if x) or None,
+                "telefon": t.get("phone") or t.get("contact:phone"),
+                "website": site,
+                "website_durumu": discover_mod.website_tier(site) if k["kategori"] else None,
+                "acilis_saatleri": t.get("opening_hours"),
+                "osm_kontrol_tarihi": t.get("check_date") or t.get("survey:date"),
+                "parmak_izi": k["parmak_izi"],
+                "asama": k["asama"], "eleme_sebebi": k["eleme_sebebi"],
+                "osm_baglantisi": f"https://www.openstreetmap.org/{k['osm_type']}/{k['osm_id']}",
+                "etiket_sayisi": len(t),
+                "ham_etiketler": json.dumps(t, ensure_ascii=False),
+            })
+
+    ambar_path = os.path.join(args.out_dir, f"LeadRadar_TarananVeri_{city_slug}_{stamp}.json")
+    with open(ambar_path, "w", encoding="utf-8") as f:
+        json.dump({
+            "calistirma": {**run_info, "date": now.isoformat(timespec="seconds")},
+            "veri_kaynagi": {
+                "ad": "OpenStreetMap",
+                "erisim": "Overpass API",
+                "lisans": "ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+                "sorgu_turu": "idari sinir poligonu icinde etiket filtresi",
+                "cekilme_zamani": now.isoformat(timespec="seconds"),
+            },
+            "ozet": {
+                "ham_kayit_sayisi": len(defter),
+                "asama_dagilimi": ozet,
+                "cerceveye_giren": sum(1 for k in defter if k["asama"] != "elendi"),
+                "rapora_secilen": len(selected),
+            },
+            "kayitlar": defter,
+        }, f, ensure_ascii=False, indent=2)
+
+    print(f"      Taranan veri (CSV): {csv_path}")
+    print(f"      Taranan veri (JSON): {ambar_path}")
+    print(f"      Ham kayit: {len(defter)} | asama dagilimi: {ozet}")
     conn.close()
     return pdf_path
 
